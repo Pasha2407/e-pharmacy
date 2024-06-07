@@ -9,15 +9,13 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
-const contactsRouter = require('./routes/api/contacts')
-const usersRouter = require('./routes/api/users')
-
 const validateToken = require('./middlewares/validateToken')
 
-app.use('/api/contacts', validateToken, contactsRouter)
-app.use('/api/users', usersRouter)
+const usersRouter = require('./routes/api/users')
+const ordersRouter = require('./routes/api/orders')
 
-app.use('/avatars', express.static('public/avatars'))
+app.use('/api/user', usersRouter)
+app.use('/api', validateToken, ordersRouter)
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' })

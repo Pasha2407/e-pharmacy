@@ -29,7 +29,6 @@ function auth(req, res, next) {
         req.user = {
             id: decode.id,
             email: user.email,
-            subscription: user.subscription,
         }
 
         next()
