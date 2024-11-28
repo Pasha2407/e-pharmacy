@@ -9,13 +9,11 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
-const validateToken = require('./middlewares/validateToken')
-
 const usersRouter = require('./routes/api/users')
 const ordersRouter = require('./routes/api/orders')
 
 app.use('/api/user', usersRouter)
-app.use('/api', validateToken, ordersRouter)
+app.use('/api', ordersRouter)
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' })
