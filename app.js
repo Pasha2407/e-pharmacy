@@ -11,9 +11,11 @@ app.use(express.json())
 
 const usersRouter = require('./routes/api/users')
 const ordersRouter = require('./routes/api/orders')
+const productsRouter = require('./routes/api/products')
 
 app.use('/api/user', usersRouter)
-app.use('/api', ordersRouter)
+app.use('/api/orders', ordersRouter)
+app.use('/api/products', productsRouter)
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' })
