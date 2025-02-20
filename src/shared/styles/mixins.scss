@@ -1,0 +1,33 @@
+@mixin media($_screen) {
+  @if $_screen == mobileS {
+    @media screen and (min-width: $mobileS) {
+      @content;
+    }
+  } @else if $_screen == mobile {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  } @else if $_screen == mobileL {
+    @media screen and (min-width: $mobileL) {
+      @content;
+    }
+  }@else if $_screen == tablet {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  }@else if $_screen == desktopS {
+    @media screen and (min-width: $desktopS) {
+      @content;
+    }
+  }@else if $_screen == desktop {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin font($_fsz, $_lnh) {
+  font-size: #{$_fsz}px;
+  line-height: calc($_lnh / $_fsz);
+}
+

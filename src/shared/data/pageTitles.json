@@ -1,0 +1,7 @@
+{
+    "/admin/dashboard": "Dashboard",
+    "/admin/orders": "All Orders",
+    "/admin/products": "All Products",
+    "/admin/suppliers": "All Suppliers",
+    "/admin/customers": "All Customers"
+}

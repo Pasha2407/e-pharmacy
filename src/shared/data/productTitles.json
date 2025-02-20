@@ -1,0 +1,24 @@
+{
+    "columns": [
+        {
+            "key": "name",
+            "label": "Product info"
+        },
+        {
+            "key": "category",
+            "label": "Category"
+        },
+        {
+            "key": "stock",
+            "label": "Stock"
+        },
+        {
+            "key": "suppliers",
+            "label": "Suppliers"
+        },
+        {
+            "key": "price",
+            "label": "Price"
+        }
+    ]
+}
