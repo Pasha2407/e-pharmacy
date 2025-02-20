@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/my-react-template/static/css/main.18ca97af.css",
-    "main.js": "/my-react-template/static/js/main.429cedfa.js",
-    "index.html": "/my-react-template/index.html",
-    "main.18ca97af.css.map": "/my-react-template/static/css/main.18ca97af.css.map",
-    "main.429cedfa.js.map": "/my-react-template/static/js/main.429cedfa.js.map"
+    "main.css": "/e-pharmacy/static/css/main.18ca97af.css",
+    "main.js": "/e-pharmacy/static/js/main.429cedfa.js",
+    "index.html": "/e-pharmacy/index.html",
+    "main.18ca97af.css.map": "/e-pharmacy/static/css/main.18ca97af.css.map",
+    "main.429cedfa.js.map": "/e-pharmacy/static/js/main.429cedfa.js.map"
   },
   "entrypoints": [
     "static/css/main.18ca97af.css",
