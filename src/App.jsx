@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Welcome } from 'pages/Welcome/Welcome';
 import { Admin } from 'pages/Admin/Admin';
@@ -13,17 +13,15 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Navigate to="welcome" replace />} />
-        <Route path="welcome" element={<Welcome />} />
-        <Route path="admin" element={<Admin />}>
-          <Route index element={<Navigate to="dashboard" replace />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/admin" element={<Admin />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
           <Route path="products" element={<Products />} />
           <Route path="suppliers" element={<Suppliers />} />
           <Route path="customers" element={<Customers />} />
         </Route>
-        <Route path="*" element={<Navigate to="welcome" replace />} />
+        <Route path="*" element={<Welcome />} />
       </Routes>
     </div>
   );

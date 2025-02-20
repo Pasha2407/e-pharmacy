@@ -18,7 +18,7 @@ export const Welcome = () => {
             worries with us
           </p>
         </div>
-        <NavLink to="/admin">Log in as a guest</NavLink>
+        <NavLink to="/admin/dashboard">Log in as a guest</NavLink>
       </main>
     </div>
   );
