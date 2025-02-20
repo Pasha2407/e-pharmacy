@@ -1,8 +1,8 @@
 {
-  "name": "my-react-template",
+  "name": "e-pharmacy",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Pasha2407.github.io/my-react-template/",
+  "homepage": "https://Pasha2407.github.io/e-pharmacy/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
