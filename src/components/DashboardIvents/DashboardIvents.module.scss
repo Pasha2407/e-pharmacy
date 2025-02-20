@@ -1,0 +1,59 @@
+.ivents {
+    display: flex;
+    gap: 20px;
+}
+
+.ivent{
+    width: 158px;
+    height: 98px;
+    border-radius: 8px;
+    border: 1px solid $light-gray;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 14px;
+
+    @include media(tablet) {
+        width: 221px;
+        height: 108px;
+    }
+    @include media(desktop) {
+        width: 240px;
+    }
+}
+
+.title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.logo {
+    width: 18px;
+    height: 18px;
+    border: 2px solid $black;
+
+    @include media(tablet) {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.title > p{
+    @include font(12, 14);
+    color: $gray;
+
+    @include media(tablet) {
+        @include font(12, 18);
+    }
+}
+
+.count {
+    @include font(16, 20);
+
+    @include media(tablet) {
+        @include font(24, 32);
+    }
+}

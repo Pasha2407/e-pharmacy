@@ -1,0 +1,84 @@
+.container {
+    padding: 24px 20px;
+
+    @include media(tablet) {
+        padding: 24px 32px;;
+    }
+    @include media(tablet) {
+        padding: 28px 100px;
+    }
+}
+
+.container > header {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    background-color: $green;
+
+    @include media(tablet) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.title {
+    @include font(20, 24);
+}
+
+.container > main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @include media (tablet) {
+        gap: 50px;
+    }
+    @include media (desktop) {
+        flex-direction: row;
+        gap: 150px;
+    }
+}
+
+.image {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background-color: $green;
+    margin-left: auto;
+    position: relative;
+    top: 35px;
+    right: 20px;
+
+    @include media (tablet) {
+        width: 175px;
+        height: 175px;
+        top: 60px;
+        right: 30px;
+    }
+}
+
+.welcomeTitle {
+    width: 335px;
+
+    @include media (tablet) {
+        width: 614px;
+    }
+}
+
+.welcomeTitle > p {
+    @include font(28, 34);
+
+    @include media (tablet) {
+        @include font(54, 60);
+    }
+}
+
+.welcomeTitle span {
+    color: $green;
+}

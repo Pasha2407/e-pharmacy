@@ -1,0 +1,29 @@
+.large {
+    width: 1280px;
+}
+
+.small {
+    width: 630px;
+}
+
+.title {
+    background-color: $light-green;
+    padding: 20px;
+    border: 1px solid $light-green;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.title > h1 {
+    @include font(18, 24);
+}
+
+.content {
+    height: 380px;
+    background-color: $white;
+    border-left: 1px solid $light-gray;
+    border-right: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}

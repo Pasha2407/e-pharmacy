@@ -1,0 +1,13 @@
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include media(tablet) {
+        padding: 20px 32px;
+    }
+    @include media(desktop) {
+        padding: 20px 40px;
+    }
+}
