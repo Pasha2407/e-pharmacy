@@ -39,9 +39,33 @@ export const logoutThunk = createAsyncThunk(
     '/auth/logout',
     async (_, thunkApi) => {
         try {
-            await instance.get('/auth/logout');
+            await instance.post('/auth/logout');
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
         }
+    }
+);
+
+export const currentThunk = createAsyncThunk(
+    '/auth/current',
+    async (_, thunkApi) => {
+        try {
+            const state = thunkApi.getState();
+            const token = state.auth.token;
+            setToken(token);
+            const { data } = await instance.get('/auth/email');
+
+            return data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
+    },
+    {
+        condition: (_, thunkApi) => {
+            const state = thunkApi.getState();
+            const token = state.auth.token;
+            if (!token) return false;
+            else return true;
+        },
     }
 );

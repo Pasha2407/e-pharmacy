@@ -1,0 +1,74 @@
+.header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    border-bottom: 1px solid $light-gray;
+
+    @include media(tablet) {
+            padding: 0 32px;
+            gap: 32px;
+        }
+    @include media(desktop) {
+            padding-left: 20px;
+            padding-right: 40px;
+            gap: 60px;
+        }
+}
+
+.burgerButton {
+    width: 32px;
+    height: 32px;
+    border: 2px solid $black;
+
+    @include media(desktop) {
+        display: none;
+    }
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    background-color: $green;
+    border-radius: 50%;
+
+    @include media(tablet) {
+        width: 40px;
+        height: 40px;
+        }
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title > h1 {
+    @include font (20, 24);
+
+    @include media(tablet) {
+        @include font (24, 28);
+        }
+}
+
+.title > span {
+    @include font (12, 18);
+    color: $gray;
+}
+
+.logout {
+    display: none;
+
+    @include media(desktop) {
+        display: block;
+        margin-left: auto;
+        width: 44px;
+        height: 44px;
+        background-color: $green;
+        border-radius: 50%;
+        border: none;
+    }
+}
