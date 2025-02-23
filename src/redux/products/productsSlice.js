@@ -5,7 +5,7 @@ const initialState = {
     productsData: null,
     isLoading: false,
     error: null,
-    productName: '',
+    fieldName: '',
     page: 1,
 };
 
@@ -13,8 +13,8 @@ const productsSlice = createSlice({
     name: 'products',
     initialState: initialState,
     reducers: {
-        setProductName(state, action) {
-            state.productName = action.payload.productName;
+        setName(state, action) {
+            state.fieldName = action.payload.fieldName;
             state.page = 1;
         },
         setPage(state, action) {
@@ -38,5 +38,5 @@ const productsSlice = createSlice({
     },
 });
 
-export const { setProductName, setPage } = productsSlice.actions;
+export const { setName, setPage } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;

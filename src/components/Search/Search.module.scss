@@ -1,0 +1,33 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+}
+
+.form > input {
+    width: 224px;
+    height: 44px;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 30px;
+    padding-left: 20px;
+}
+
+.searchButton {
+    width: 116px;
+    height: 44px;
+    background-color: $green;
+    color: $white;
+    font-size: 14px;
+    border-radius: 30px;
+    border: none;
+}
+
+.clear {
+    width: 116px;
+    height: 44px;
+    background-color: $red;
+    color: $white;
+    font-size: 14px;
+    border-radius: 30px;
+    border: none;
+}

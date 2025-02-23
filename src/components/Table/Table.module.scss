@@ -1,0 +1,22 @@
+.table > thead {
+    height: 50px;
+}
+
+.table th {
+    @include font(14,18);
+    color: $gray;
+}
+
+.table td {
+    @include font(16, 18);
+    height: 60px;
+}
+
+.table th,
+.table td {
+    width: 200px;
+    text-align: left;
+    border-bottom: 1px solid $light-gray;
+    border-left: 1px solid $light-gray;
+    padding-left: 20px;
+}

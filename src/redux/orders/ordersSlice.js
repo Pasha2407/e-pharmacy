@@ -5,7 +5,7 @@ const initialState = {
     ordersData: null,
     isLoading: false,
     error: null,
-    userName: '',
+    fieldName: '',
     page: 1,
 };
 
@@ -13,8 +13,8 @@ const ordersSlice = createSlice({
     name: 'orders',
     initialState: initialState,
     reducers: {
-        setUserName(state, action) {
-            state.userName = action.payload.userName;
+        setName(state, action) {
+            state.fieldName = action.payload.fieldName;
             state.page = 1;
         },
         setPage(state, action) {
@@ -38,5 +38,5 @@ const ordersSlice = createSlice({
     },
 });
 
-export const { setUserName, setPage } = ordersSlice.actions;
+export const { setName, setPage } = ordersSlice.actions;
 export const ordersReducer = ordersSlice.reducer;
