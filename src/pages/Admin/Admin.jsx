@@ -20,7 +20,7 @@ export const Admin = () => {
 
   const onLogout = () => {
     dispatch(logoutThunk());
-    navigate('/login');
+    navigate('/');
   };
 
   return (

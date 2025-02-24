@@ -1,12 +1,7 @@
-import { NavLink } from 'react-router-dom';
-
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import { AuthForm } from 'components/AuthForm/AuthForm';
 import s from './Welcome.module.scss';
-import { useState } from 'react';
 
 export const Welcome = () => {
-  const [register, setRegister] = useState(false);
-
   return (
     <div className={s.container}>
       <header>
@@ -22,12 +17,7 @@ export const Welcome = () => {
             worries with us
           </p>
         </div>
-        <LoginForm register={register} />
-        <NavLink to="/admin/dashboard">Log in as a guest</NavLink>
-        <p>
-          Don`t have an account yet?
-          <span onClick={() => setRegister(true)}>Register now</span>
-        </p>
+        <AuthForm />
       </main>
     </div>
   );

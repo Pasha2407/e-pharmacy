@@ -1,0 +1,59 @@
+.authForm {
+    width: 323px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.formLabel {
+    padding: 12px 18px;
+    border-radius: 20px;
+    border: 1px solid $light-gray;
+}
+
+.form > button {
+    padding: 12px 18px;
+    border-radius: 20px;
+    border: none;
+    background-color: $green;
+    color: $white;
+    margin-top: 10px;
+}
+
+.form > a {
+    text-align: center;
+    color: $gray;
+}
+
+.error > p {
+    color: $red;
+}
+
+.alternative {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.alternative span {
+    color: $green;
+    cursor: pointer;
+}
+
+.alternative > button {
+    width: 200px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    border: 1px solid $light-gray;
+}
+
+.google {
+    background: $blue;
+    color: $white;
+    margin-bottom: 4px;
+}

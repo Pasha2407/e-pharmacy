@@ -31,6 +31,7 @@
 }
 
 .container > main {
+    height: calc(100vh - 96px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,6 +46,19 @@
     }
 }
 
+.welcomeTitle {
+    width: 310px;
+
+    @include media (tablet) {
+        width: 440px;
+    }
+    @include media (desktop) {
+        width: 614px;
+        position: relative;
+        top: -100px;
+    }
+}
+
 .image {
     width: 95px;
     height: 95px;
@@ -53,28 +67,29 @@
     margin-left: auto;
     position: relative;
     top: 35px;
-    right: 20px;
+    right: 5px;
 
     @include media (tablet) {
+        width: 135px;
+        height: 135px;
+        top: 50px;
+        right: 5px;
+    }
+    @include media (desktop){
         width: 175px;
         height: 175px;
         top: 60px;
-        right: 30px;
-    }
-}
-
-.welcomeTitle {
-    width: 335px;
-
-    @include media (tablet) {
-        width: 614px;
-    }
+        right: 35px;
+        }
 }
 
 .welcomeTitle > p {
     @include font(28, 34);
 
     @include media (tablet) {
+        @include font(40, 46);
+    }
+    @include media (desktop) {
         @include font(54, 60);
     }
 }
