@@ -7,6 +7,7 @@ const initialState = {
     error: null,
     fieldName: '',
     page: 1,
+    totalProducts: 60,
 };
 
 const productsSlice = createSlice({
@@ -30,6 +31,7 @@ const productsSlice = createSlice({
             .addCase(getProductsThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.productsData = payload.products;
+                state.totalProducts = payload.totalProducts;
             })
             .addCase(getProductsThunk.rejected, (state, { payload }) => {
                 state.isLoading = false;

@@ -1,0 +1,16 @@
+{
+    "columns": [
+        {
+            "key": "name",
+            "label": "User Info"
+        },
+        {
+            "key": "email",
+            "label": "Email"
+        },
+        {
+            "key": "spent",
+            "label": "Spent"
+        }
+    ]
+}

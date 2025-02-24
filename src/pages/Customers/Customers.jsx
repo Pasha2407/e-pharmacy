@@ -38,7 +38,6 @@ export const Customers = () => {
     <Container>
       <Search placeholder={'User Name'} setName={setName} />
       <TableContainer title="Customers Data">
-        {' '}
         {isLoading && !error ? (
           <i>Loading...</i>
         ) : (

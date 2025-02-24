@@ -1,21 +1,39 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  selectGetCustomers,
+  selectCustomersError,
+  selectCustomersIsLoading,
+} from '../../redux/customers/customersSelectors';
+import { getCustomersThunk } from '../../redux/customers/customersServices';
 import { Container } from 'components/Container/Container';
 import { DashboardIvents } from 'components/DashboardIvents/DashboardIvents';
 import { TableContainer } from 'components/TableContainer/TableContainer';
+import { Table } from 'components/Table/Table';
+import titles from 'shared/data/recent-customerTitles.json';
 import s from './Dashboard.module.scss';
 
-const dataIvent = [
-  { id: '1', title: 'All products', count: '8,430' },
-  { id: '2', title: 'All suppliers', count: '211' },
-  { id: '3', title: 'All Customers', count: '140' },
-];
-
 export const Dashboard = () => {
+  const dispatch = useDispatch();
+  const customers = useSelector(selectGetCustomers);
+  const isLoading = useSelector(selectCustomersIsLoading);
+  const error = useSelector(selectCustomersError);
+
+  useEffect(() => {
+    dispatch(getCustomersThunk({}));
+  }, [dispatch]);
+
   return (
     <Container>
-      <DashboardIvents data={dataIvent} />
+      <DashboardIvents />
       <section className={s.tables}>
         <TableContainer size="small" title="Recent Customers">
-          Table
+          {isLoading && !error ? (
+            <i>Loading...</i>
+          ) : (
+            <Table columns={titles.columns} data={customers} />
+          )}
         </TableContainer>
         <TableContainer size="small" title="Income/Expenses">
           List
