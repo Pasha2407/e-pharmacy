@@ -1,0 +1,58 @@
+.list {
+    padding: 0 20px;
+}
+
+.title {
+    @include font(14, 18);
+    font-weight: bold;
+    height: 52px;
+    color: $gray;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid $light-gray;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.row {
+    @include font(14, 18);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 1px solid $light-gray;
+    padding: 15px 0;
+
+    @include media(tablet) {
+        @include font(16, 18);
+    }
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row > div {
+    @include font(12, 14);
+    width: 80px;
+    background-color: $light-green;
+    color: $green;
+    text-align: center;
+    padding: 4px;
+    border-radius: 40px;
+
+    @include media(tablet) {
+        @include font(14, 16);
+    }
+}
+
+.row > p {
+    flex: 1;
+    text-align: left;
+}

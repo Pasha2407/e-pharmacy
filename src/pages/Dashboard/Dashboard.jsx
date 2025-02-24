@@ -11,6 +11,7 @@ import { Container } from 'components/Container/Container';
 import { DashboardIvents } from 'components/DashboardIvents/DashboardIvents';
 import { TableContainer } from 'components/TableContainer/TableContainer';
 import { Table } from 'components/Table/Table';
+import { List } from 'components/List/List';
 import titles from 'shared/data/recent-customerTitles.json';
 import s from './Dashboard.module.scss';
 
@@ -36,7 +37,7 @@ export const Dashboard = () => {
           )}
         </TableContainer>
         <TableContainer size="small" title="Income/Expenses">
-          List
+          <List />
         </TableContainer>
       </section>
     </Container>
