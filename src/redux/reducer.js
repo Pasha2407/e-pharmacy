@@ -5,6 +5,7 @@ import { authReducer } from './auth/authSlice';
 import { ordersReducer } from './orders/ordersSlice';
 import { productsReducer } from './products/productsSlice';
 import { suppliersReducer } from './suppliers/suppliersSlice';
+import { customersReducer } from './customers/customersSlice';
 
 const authPersistConfig = {
     key: 'auth',
@@ -16,5 +17,6 @@ export const reducer = {
     auth: persistReducer(authPersistConfig, authReducer),
     orders: ordersReducer,
     products: productsReducer,
-    suppliers: suppliersReducer
+    suppliers: suppliersReducer,
+    customers: customersReducer
 };
