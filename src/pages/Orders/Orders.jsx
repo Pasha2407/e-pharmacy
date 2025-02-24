@@ -8,11 +8,9 @@ import {
   selectOrdersPage,
   selectOrdersUserName,
 } from '../../redux/orders/ordersSelectors';
-
 import { getOrdersThunk } from '../../redux/orders/ordersServices';
 import { setPage } from '../../redux/orders/ordersSlice';
 import { setName } from '../../redux/orders/ordersSlice';
-
 import { Container } from 'components/Container/Container';
 import { Search } from 'components/Search/Search';
 import { TableContainer } from 'components/TableContainer/TableContainer';

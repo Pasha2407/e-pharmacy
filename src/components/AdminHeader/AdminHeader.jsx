@@ -1,11 +1,20 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { logoutThunk } from '../../redux/auth/authServices';
 import pageTitles from '../../shared/data/pageTitles.json';
 import s from './AdminHeader.module.scss';
 
-export const AdminHeader = ({ userEmail, onLogout }) => {
+export const AdminHeader = ({ userEmail }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const getPageTitle = () => pageTitles[location.pathname] || 'Dashboard';
+
+  const onLogout = () => {
+    dispatch(logoutThunk());
+    navigate('/');
+  };
 
   return (
     <header className={s.header}>

@@ -8,11 +8,9 @@ import {
   selectProductsPage,
   selectProductName,
 } from '../../redux/products/productsSelectors';
-
 import { getProductsThunk } from '../../redux/products/productsServices';
 import { setPage } from '../../redux/products/productsSlice';
 import { setName } from '../../redux/products/productsSlice';
-
 import { Container } from 'components/Container/Container';
 import { Search } from 'components/Search/Search';
 import { TableContainer } from 'components/TableContainer/TableContainer';

@@ -5,7 +5,6 @@ import { Field, Formik, Form } from 'formik';
 
 import { selectAuthError } from '../../redux/auth/authSelectors';
 import { loginThunk, registerThunk } from '../../redux/auth/authServices';
-
 import s from './AuthForm.module.scss';
 
 export const AuthForm = () => {
