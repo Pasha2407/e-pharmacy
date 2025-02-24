@@ -1,0 +1,28 @@
+{
+    "columns": [
+        {
+            "key": "name",
+            "label": "Suppliers Info"
+        },
+        {
+            "key": "address",
+            "label": "Address"
+        },
+        {
+            "key": "suppliers",
+            "label": "Company"
+        },
+        {
+            "key": "date",
+            "label": "Delivery date"
+        },
+        {
+            "key": "amount",
+            "label": "Ammount"
+        },
+        {
+            "key": "status",
+            "label": "Status"
+        }
+    ]
+}
