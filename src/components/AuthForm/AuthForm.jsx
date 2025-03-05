@@ -46,6 +46,21 @@ export const AuthForm = () => {
     }
   };
 
+  const googleAuth = () => {
+    const width = 500;
+    const height = 600;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+    const authWindow = window.open(
+      'http://localhost:4000/auth/google',
+      'GoogleAuth',
+      `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=yes,status=no`
+    );
+    if (authWindow) {
+      authWindow.focus();
+    }
+  };
+
   return (
     <div className={s.authForm}>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
@@ -92,7 +107,9 @@ export const AuthForm = () => {
           </p>
         )}
         <p>or</p>
-        <button className={s.google}>Log in with Google</button>
+        <button className={s.google} onClick={googleAuth}>
+          Log in with Google
+        </button>
         <button>
           <NavLink to="/admin/dashboard">Log in as a guest</NavLink>
         </button>

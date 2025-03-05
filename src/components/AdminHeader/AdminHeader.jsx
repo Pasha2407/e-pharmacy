@@ -11,8 +11,8 @@ export const AdminHeader = ({ userEmail }) => {
   const location = useLocation();
   const getPageTitle = () => pageTitles[location.pathname] || 'Dashboard';
 
-  const onLogout = () => {
-    dispatch(logoutThunk());
+  const onLogout = async () => {
+    await dispatch(logoutThunk());
     navigate('/');
   };
 
