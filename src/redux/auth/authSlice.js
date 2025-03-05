@@ -12,7 +12,13 @@ const initialState = {
 const authSlice = createSlice({
     name: 'auth',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        setGoogleUser: (state, action) => {
+            state.userEmail = action.payload.user.email;
+            state.token = action.payload.user.token;
+            state.authenticated = true;
+        },
+    },
     extraReducers: builder => {
         builder
             .addCase(registerThunk.fulfilled, (state, { payload }) => {
@@ -60,4 +66,5 @@ const authSlice = createSlice({
     },
 });
 
+export const { setGoogleUser } = authSlice.actions;
 export const authReducer = authSlice.reducer;

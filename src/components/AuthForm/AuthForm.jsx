@@ -5,6 +5,7 @@ import { Field, Formik, Form } from 'formik';
 
 import { selectAuthError } from '../../redux/auth/authSelectors';
 import { loginThunk, registerThunk } from '../../redux/auth/authServices';
+import { GoogleButton } from 'components/GoogleButton/GoogleButton';
 import s from './AuthForm.module.scss';
 
 export const AuthForm = () => {
@@ -19,46 +20,12 @@ export const AuthForm = () => {
   };
 
   const onSubmit = (values, { setSubmitting }) => {
-    if (register) {
-      dispatch(registerThunk(values))
-        .unwrap()
-        .then(() => {
-          navigate('/admin/dashboard');
-        })
-        .catch(error => {
-          console.error('Login failed:', error);
-        })
-        .finally(() => {
-          setSubmitting(false);
-        });
-    } else {
-      dispatch(loginThunk(values))
-        .unwrap()
-        .then(() => {
-          navigate('/admin/dashboard');
-        })
-        .catch(error => {
-          console.error('Login failed:', error);
-        })
-        .finally(() => {
-          setSubmitting(false);
-        });
-    }
-  };
-
-  const googleAuth = () => {
-    const width = 500;
-    const height = 600;
-    const left = (window.innerWidth - width) / 2;
-    const top = (window.innerHeight - height) / 2;
-    const authWindow = window.open(
-      'http://localhost:4000/auth/google',
-      'GoogleAuth',
-      `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=yes,status=no`
-    );
-    if (authWindow) {
-      authWindow.focus();
-    }
+    const thunk = register ? registerThunk : loginThunk;
+    dispatch(thunk(values))
+      .unwrap()
+      .then(() => navigate('/admin/dashboard'))
+      .catch(error => console.error('Login failed:', error))
+      .finally(() => setSubmitting(false));
   };
 
   return (
@@ -107,10 +74,8 @@ export const AuthForm = () => {
           </p>
         )}
         <p>or</p>
-        <button className={s.google} onClick={googleAuth}>
-          Log in with Google
-        </button>
-        <button>
+        <GoogleButton />
+        <button className={s.guestButton}>
           <NavLink to="/admin/dashboard">Log in as a guest</NavLink>
         </button>
       </div>
