@@ -1,0 +1,92 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 536px;
+    height: 412px;
+    background-color: $white;
+    padding: 15px 40px;
+    border-radius: 12px;
+}
+
+.exit {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: -25px;
+    cursor: pointer;
+}
+
+.modal > h2 {
+    @include font(24,28)
+}
+
+.content {
+    margin-top: 40px;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 224px);
+    gap: 14px 8px;
+}
+
+.formLabel, select {
+    @include font(12,18);
+    width: 224px;
+    height: 44px;
+    border: 1px solid $light-gray;
+    border-radius: 60px;
+    color: $gray;
+    padding-left: 18px;
+}
+
+.select > option {
+    background-color: $green;
+    color: $white;
+}
+
+.select > option:hover {
+    background-color: $light-green;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 8px;
+}
+
+.buttons > button {
+    @include font(14,18);
+    width: 133px;
+    height: 44px;
+    border: none;
+    border-radius: 60px;
+}
+
+.buttons button:first-child {
+    background-color: $green;
+    color: $white;
+}
+
+.buttons button:last-child {
+    background-color: $light-gray;
+    color: $gray;
+}
+
+.error {
+    margin-top: 10px;
+}
+
+.error > p {
+    color: $red;
+}

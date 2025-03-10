@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getProductsThunk } from "./productsServices";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { getProductsThunk, addProductThunk } from "./productsServices";
 
 const initialState = {
     productsData: null,
@@ -24,19 +24,35 @@ const productsSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(getProductsThunk.pending, (state) => {
-                state.isLoading = true;
-                state.error = null;
-            })
             .addCase(getProductsThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.productsData = payload.products;
                 state.totalProducts = payload.totalProducts;
             })
-            .addCase(getProductsThunk.rejected, (state, { payload }) => {
+            .addCase(addProductThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.error = payload;
+                state.productsData = [...state.productsData, payload.product];
             })
+            .addMatcher(
+                isAnyOf(
+                    getProductsThunk.pending,
+                    addProductThunk.pending,
+                ),
+                state => {
+                    state.isLoading = true;
+                    state.error = null;
+                }
+            )
+            .addMatcher(
+                isAnyOf(
+                    getProductsThunk.rejected,
+                    addProductThunk.rejected,
+                ),
+                (state, { payload }) => {
+                    state.isLoading = false;
+                    state.error = payload;
+                }
+            )
     },
 });
 

@@ -1,0 +1,17 @@
+.button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: $green;
+}
+
+.button > p {
+   @include font(14,18)
+}

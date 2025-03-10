@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { currentThunk } from './redux/auth/authServices';
 import { selectAuthenticated } from './redux/auth/authSelectors';
@@ -16,16 +16,17 @@ export const App = () => {
   const dispatch = useDispatch();
   const authenticated = useSelector(selectAuthenticated);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(currentThunk());
   }, [dispatch]);
 
   useEffect(() => {
-    if (authenticated) {
+    if (location.pathname === '/' && authenticated) {
       navigate('/admin/dashboard');
     }
-  }, [navigate, authenticated]);
+  }, [navigate, location, authenticated]);
 
   return (
     <div>

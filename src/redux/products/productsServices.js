@@ -20,3 +20,14 @@ export const getProductsThunk = createAsyncThunk(
             return thunkApi.rejectWithValue(error.message);
         }
     })
+
+export const addProductThunk = createAsyncThunk(
+    '/products/addProduct',
+    async (formData, thunkApi) => {
+        try {
+            const { data } = await instance.post('/product', formData);
+            return data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
+    })
