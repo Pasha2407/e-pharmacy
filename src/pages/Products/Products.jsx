@@ -32,9 +32,8 @@ export const Products = () => {
   const [productId, setProductId] = useState('');
 
   useEffect(() => {
-    console.log('id', productId);
     dispatch(getProductsThunk({ productName, page }));
-  }, [productName, page, dispatch, productId]);
+  }, [productName, page, dispatch, showEditModal]);
 
   const handlePageChange = newPage => {
     dispatch(setPage(newPage));

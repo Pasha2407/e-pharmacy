@@ -34,9 +34,9 @@ export const addProductThunk = createAsyncThunk(
 
 export const editProductThunk = createAsyncThunk(
     '/products/editProduct',
-    async (id, formData, thunkApi) => {
+    async ({ id, formData }, thunkApi) => {
         try {
-            const { data } = await instance.put('/product', id, formData);
+            const { data } = await instance.put(`/product/${id}`, formData);
             return data;
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);

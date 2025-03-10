@@ -34,14 +34,17 @@ export const Modal = ({ setShowModal, add, id }) => {
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     const thunk = add ? addProductThunk : editProductThunk;
-    const params = add ? values : { id, values };
+    const filteredValues = Object.fromEntries(
+      Object.entries(values).filter(([_, value]) => value !== '')
+    );
+    const params = add ? values : { id: id, formData: filteredValues };
     dispatch(thunk(params))
       .unwrap()
       .then(() => {
         resetForm();
         setShowModal(false);
       })
-      .catch(error => console.error('error:', error))
+      .catch(error => console.error('error submit:', error))
       .finally(() => setSubmitting(false));
   };
 
@@ -99,7 +102,9 @@ export const Modal = ({ setShowModal, add, id }) => {
                   >
                     {add ? 'Add' : 'Save'}
                   </button>
-                  <button onClick={() => resetForm()}>Cancel</button>
+                  <button type="button" onClick={() => resetForm()}>
+                    Cancel
+                  </button>
                 </div>
               </Form>
               {buttonClick && error && (
