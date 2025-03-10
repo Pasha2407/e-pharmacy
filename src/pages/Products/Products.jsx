@@ -8,6 +8,7 @@ import {
   selectProductsPage,
   selectProductName,
 } from '../../redux/products/productsSelectors';
+import { selectAuthenticated } from '../../redux/auth/authSelectors';
 import { getProductsThunk } from '../../redux/products/productsServices';
 import { setPage } from '../../redux/products/productsSlice';
 import { setName } from '../../redux/products/productsSlice';
@@ -24,6 +25,7 @@ import { DeleteModal } from 'components/DeleteModal/DeleteModal';
 
 export const Products = () => {
   const dispatch = useDispatch();
+  const authenticated = useSelector(selectAuthenticated);
   const products = useSelector(selectGetProducts);
   const isLoading = useSelector(selectProductsIsLoading);
   const error = useSelector(selectProductsError);
@@ -33,6 +35,7 @@ export const Products = () => {
   const [productId, setProductId] = useState('');
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deleteProductId, setDeleteProductId] = useState('');
+  const action = authenticated ? true : false;
 
   useEffect(() => {
     dispatch(getProductsThunk({ productName, page }));
@@ -56,14 +59,14 @@ export const Products = () => {
     <Container>
       <section className={s.management}>
         <Search placeholder={'Product Name'} setName={setName} />
-        <AddProductButton />
+        {authenticated && <AddProductButton />}
       </section>
       <TableContainer title="All products">
         {isLoading && !error && <i>Loading...</i>}
         <Table
           columns={titles.columns}
           data={products}
-          action={true}
+          action={action}
           openEditModal={openEditModal}
           openDeleteModal={openDeleteModal}
         />

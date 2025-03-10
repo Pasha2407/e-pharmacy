@@ -14,7 +14,7 @@ export const Table = ({
           {columns.map(col => (
             <th key={col.key}>{col.label}</th>
           ))}
-          <th>Action</th>
+          {action && <th>Action</th>}
         </tr>
       </thead>
       <tbody>
