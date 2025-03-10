@@ -20,3 +20,23 @@
     border-left: 1px solid $light-gray;
     padding-left: 20px;
 }
+
+.action {
+    display: flex;
+    gap: 8px;
+}
+
+.action > div {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.action div:first-child {
+    background-color: $green;
+}
+
+.action div:last-child {
+    background-color: $red;
+}

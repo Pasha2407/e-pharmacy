@@ -19,6 +19,7 @@ import { Table } from 'components/Table/Table';
 import { Pagination } from 'components/Pagination/Pagination';
 import titles from 'shared/data/productTitles.json';
 import s from './Products.module.scss';
+import { Modal } from 'components/Modal/Modal';
 
 export const Products = () => {
   const dispatch = useDispatch();
@@ -27,27 +28,42 @@ export const Products = () => {
   const error = useSelector(selectProductsError);
   const page = useSelector(selectProductsPage);
   const productName = useSelector(selectProductName);
-  const [createdProduct, setCreatedProduct] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [productId, setProductId] = useState('');
 
   useEffect(() => {
+    console.log('id', productId);
     dispatch(getProductsThunk({ productName, page }));
-  }, [productName, page, dispatch]);
+  }, [productName, page, dispatch, productId]);
 
   const handlePageChange = newPage => {
     dispatch(setPage(newPage));
+  };
+
+  const openEditModal = id => {
+    setProductId(id);
+    setShowEditModal(true);
   };
 
   return (
     <Container>
       <section className={s.management}>
         <Search placeholder={'Product Name'} setName={setName} />
-        <AddProductButton setCreatedProduct={setCreatedProduct} />
+        <AddProductButton />
       </section>
       <TableContainer title="All products">
         {isLoading && !error && <i>Loading...</i>}
-        {!createdProduct && <Table columns={titles.columns} data={products} />}
+        <Table
+          columns={titles.columns}
+          data={products}
+          action={true}
+          openEditModal={openEditModal}
+        />
       </TableContainer>
       <Pagination page={page} handlePageChange={handlePageChange} />
+      {showEditModal && (
+        <Modal setShowModal={setShowEditModal} add={false} id={productId} />
+      )}
     </Container>
   );
 };

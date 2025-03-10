@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, Formik, Form } from 'formik';
 
-import { addProductThunk } from '../../redux/products/productsServices';
+import {
+  addProductThunk,
+  editProductThunk,
+} from '../../redux/products/productsServices';
 import { selectProductsError } from '../../redux/products/productsSelectors';
 import s from './Modal.module.scss';
 
-export const Modal = ({ closeModal, add }) => {
+export const Modal = ({ setShowModal, add, id }) => {
   const dispatch = useDispatch();
   const error = useSelector(selectProductsError);
   const [buttonClick, setButtonClick] = useState(false);
@@ -30,11 +33,13 @@ export const Modal = ({ closeModal, add }) => {
   ];
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
-    dispatch(addProductThunk(values))
+    const thunk = add ? addProductThunk : editProductThunk;
+    const params = add ? values : { id, values };
+    dispatch(thunk(params))
       .unwrap()
       .then(() => {
         resetForm();
-        closeModal();
+        setShowModal(false);
       })
       .catch(error => console.error('error:', error))
       .finally(() => setSubmitting(false));
@@ -44,7 +49,7 @@ export const Modal = ({ closeModal, add }) => {
     <div className={s.wrapper}>
       <div className={s.modal}>
         <div className={s.exit}>
-          <div onClick={closeModal}>X</div>
+          <div onClick={() => setShowModal(false)}>X</div>
         </div>
         {add ? <h2>Add a new product</h2> : <h2>Edit product</h2>}
 

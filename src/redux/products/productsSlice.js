@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getProductsThunk, addProductThunk } from "./productsServices";
+import { getProductsThunk, addProductThunk, editProductThunk } from "./productsServices";
 
 const initialState = {
     productsData: null,
@@ -31,12 +31,16 @@ const productsSlice = createSlice({
             })
             .addCase(addProductThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.productsData = [...state.productsData, payload.product];
+                // state.productsData = [...state.productsData, payload.product];
+            })
+            .addCase(editProductThunk.fulfilled, (state) => {
+                state.isLoading = false;
             })
             .addMatcher(
                 isAnyOf(
                     getProductsThunk.pending,
                     addProductThunk.pending,
+                    editProductThunk.pending,
                 ),
                 state => {
                     state.isLoading = true;
@@ -47,6 +51,7 @@ const productsSlice = createSlice({
                 isAnyOf(
                     getProductsThunk.rejected,
                     addProductThunk.rejected,
+                    editProductThunk.rejected,
                 ),
                 (state, { payload }) => {
                     state.isLoading = false;

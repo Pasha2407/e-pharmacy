@@ -1,21 +1,28 @@
 import s from './Table.module.scss';
 
-export const Table = ({ columns, data }) => {
+export const Table = ({ columns, data, action = false, openEditModal }) => {
   return (
     <table className={s.table}>
       <thead>
         <tr>
-          {columns.map((col) => (
+          {columns.map(col => (
             <th key={col.key}>{col.label}</th>
           ))}
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         {data?.map((row, index) => (
           <tr key={index}>
-            {columns.map((col) => (
+            {columns.map(col => (
               <td key={col.key}>{row[col.key]}</td>
             ))}
+            {action && (
+              <td className={s.action}>
+                <div onClick={() => openEditModal(row.id)}></div>
+                <div onClick={() => console.log('Action clicked', row)}></div>
+              </td>
+            )}
           </tr>
         ))}
       </tbody>
