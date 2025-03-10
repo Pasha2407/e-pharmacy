@@ -42,3 +42,14 @@ export const editProductThunk = createAsyncThunk(
             return thunkApi.rejectWithValue(error.message);
         }
     })
+
+export const deleteProductThunk = createAsyncThunk(
+    '/products/deleteProduct',
+    async (id, thunkApi) => {
+        try {
+            const { data } = await instance.patch(`/product/${id}/delete`);
+            return data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
+    })

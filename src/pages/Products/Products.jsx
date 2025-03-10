@@ -20,6 +20,7 @@ import { Pagination } from 'components/Pagination/Pagination';
 import titles from 'shared/data/productTitles.json';
 import s from './Products.module.scss';
 import { Modal } from 'components/Modal/Modal';
+import { DeleteModal } from 'components/DeleteModal/DeleteModal';
 
 export const Products = () => {
   const dispatch = useDispatch();
@@ -30,10 +31,12 @@ export const Products = () => {
   const productName = useSelector(selectProductName);
   const [showEditModal, setShowEditModal] = useState(false);
   const [productId, setProductId] = useState('');
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteProductId, setDeleteProductId] = useState('');
 
   useEffect(() => {
     dispatch(getProductsThunk({ productName, page }));
-  }, [productName, page, dispatch, showEditModal]);
+  }, [productName, page, dispatch, showEditModal, showDeleteModal]);
 
   const handlePageChange = newPage => {
     dispatch(setPage(newPage));
@@ -42,6 +45,11 @@ export const Products = () => {
   const openEditModal = id => {
     setProductId(id);
     setShowEditModal(true);
+  };
+
+  const openDeleteModal = id => {
+    setDeleteProductId(id);
+    setShowDeleteModal(true);
   };
 
   return (
@@ -57,11 +65,15 @@ export const Products = () => {
           data={products}
           action={true}
           openEditModal={openEditModal}
+          openDeleteModal={openDeleteModal}
         />
       </TableContainer>
       <Pagination page={page} handlePageChange={handlePageChange} />
       {showEditModal && (
         <Modal setShowModal={setShowEditModal} add={false} id={productId} />
+      )}
+      {showDeleteModal && (
+        <DeleteModal setShowModal={setShowDeleteModal} id={deleteProductId} />
       )}
     </Container>
   );

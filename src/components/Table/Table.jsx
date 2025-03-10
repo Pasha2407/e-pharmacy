@@ -1,6 +1,12 @@
 import s from './Table.module.scss';
 
-export const Table = ({ columns, data, action = false, openEditModal }) => {
+export const Table = ({
+  columns,
+  data,
+  action = false,
+  openEditModal,
+  openDeleteModal,
+}) => {
   return (
     <table className={s.table}>
       <thead>
@@ -20,7 +26,7 @@ export const Table = ({ columns, data, action = false, openEditModal }) => {
             {action && (
               <td className={s.action}>
                 <div onClick={() => openEditModal(row.id)}></div>
-                <div onClick={() => console.log('Action clicked', row)}></div>
+                <div onClick={() => openDeleteModal(row.id)}></div>
               </td>
             )}
           </tr>

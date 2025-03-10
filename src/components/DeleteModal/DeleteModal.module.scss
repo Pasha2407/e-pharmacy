@@ -1,0 +1,46 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 300px;
+    background-color: $white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.modal>h2 {
+    @include font(18, 20)
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 8px;
+}
+
+.buttons>button {
+    @include font(14, 18);
+    width: 133px;
+    height: 44px;
+    border: none;
+    border-radius: 60px;
+}
+
+.buttons button:first-child {
+    background-color: $red;
+    color: $white;
+}
+
+.buttons button:last-child {
+    background-color: $light-gray;
+    color: $gray;
+}
