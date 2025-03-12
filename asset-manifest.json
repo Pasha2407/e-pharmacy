@@ -1,12 +1,24 @@
 {
   "files": {
-    "main.js": "/e-pharmacy/static/js/main.ff7f87b7.js",
+    "main.js": "/e-pharmacy/static/js/main.1aac654f.js",
     "static/media/logo.png": "/e-pharmacy/static/media/logo.fb55414a5b01bf7b9f77.png",
     "static/media/welcome-tablet.png": "/e-pharmacy/static/media/welcome-tablet.2ff2e1e2a8ee0a7cc47c.png",
+    "static/media/customers.svg": "/e-pharmacy/static/media/customers.c1451d99922f91bf6fac250c11aa553e.svg",
+    "static/media/customersActive.svg": "/e-pharmacy/static/media/customersActive.bd79e299d489b2bb1613060112cf0e31.svg",
+    "static/media/orders.svg": "/e-pharmacy/static/media/orders.f065d88fdb4c9f6aaaacfc849d7779f1.svg",
+    "static/media/ordersActive.svg": "/e-pharmacy/static/media/ordersActive.1f7e6f203576db07ceda430f4529c165.svg",
     "index.html": "/e-pharmacy/index.html",
-    "main.ff7f87b7.js.map": "/e-pharmacy/static/js/main.ff7f87b7.js.map"
+    "static/media/dashboard.svg": "/e-pharmacy/static/media/dashboard.210da22f7cfd704e5c01f99d62a4d9be.svg",
+    "static/media/dashboardActive.svg": "/e-pharmacy/static/media/dashboardActive.8bd9b6283f5ae3104f9a5b7c550f525f.svg",
+    "static/media/products.svg": "/e-pharmacy/static/media/products.610bd698848c023a0bef8fd4659ecb68.svg",
+    "static/media/productsActive.svg": "/e-pharmacy/static/media/productsActive.37bd7b1fe29770f9a743a102b3cca2c8.svg",
+    "static/media/suppliers.svg": "/e-pharmacy/static/media/suppliers.6ade965d696624ae7abc45a4598ce2c3.svg",
+    "static/media/suppliersActive.svg": "/e-pharmacy/static/media/suppliersActive.59f74ebe53cce5693b14a09bb1c1818e.svg",
+    "static/media/burgerActive.svg": "/e-pharmacy/static/media/burgerActive.b433dc621a0a9279154f6e5a06c4454c.svg",
+    "static/media/burger.svg": "/e-pharmacy/static/media/burger.b5a35a845b0b6727a4b0576e56b8a340.svg",
+    "main.1aac654f.js.map": "/e-pharmacy/static/js/main.1aac654f.js.map"
   },
   "entrypoints": [
-    "static/js/main.ff7f87b7.js"
+    "static/js/main.1aac654f.js"
   ]
 }
