@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.js": "/e-pharmacy/static/js/main.05ccc2a9.js",
+    "main.js": "/e-pharmacy/static/js/main.ff7f87b7.js",
+    "static/media/logo.png": "/e-pharmacy/static/media/logo.fb55414a5b01bf7b9f77.png",
+    "static/media/welcome-tablet.png": "/e-pharmacy/static/media/welcome-tablet.2ff2e1e2a8ee0a7cc47c.png",
     "index.html": "/e-pharmacy/index.html",
-    "main.05ccc2a9.js.map": "/e-pharmacy/static/js/main.05ccc2a9.js.map"
+    "main.ff7f87b7.js.map": "/e-pharmacy/static/js/main.ff7f87b7.js.map"
   },
   "entrypoints": [
-    "static/js/main.05ccc2a9.js"
+    "static/js/main.ff7f87b7.js"
   ]
 }
