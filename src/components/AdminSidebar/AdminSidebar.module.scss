@@ -12,3 +12,19 @@
         gap: 14px;
     }
 }
+
+.sidebar>a {
+    width: 44px;
+    height: 44px;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: 0 0 7px $light-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar img {
+    width: 16px;
+    height: 16px;
+}

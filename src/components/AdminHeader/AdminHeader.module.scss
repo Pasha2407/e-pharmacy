@@ -21,7 +21,7 @@
 .burgerButton {
     width: 32px;
     height: 32px;
-    border: 2px solid $black;
+    cursor: pointer;
 
     @include media(desktop) {
         display: none;
@@ -31,8 +31,6 @@
 .logo {
     width: 32px;
     height: 32px;
-    background-color: $green;
-    border-radius: 50%;
 
     @include media(tablet) {
         width: 40px;
@@ -67,8 +65,6 @@
         margin-left: auto;
         width: 44px;
         height: 44px;
-        background-color: $green;
-        border-radius: 50%;
-        border: none;
+        cursor: pointer;
     }
 }
