@@ -1,19 +1,40 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Field, Formik, Form } from 'formik';
+import { Field, Formik, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 import { selectAuthError } from '../../redux/auth/authSelectors';
 import { loginThunk, registerThunk } from '../../redux/auth/authServices';
 import { GoogleButton } from 'components/GoogleButton/GoogleButton';
 import s from './AuthForm.module.scss';
 
+const validationSchema = Yup.object({
+  password: Yup.string()
+    .min(4, 'Password must contain at least 4 characters')
+    .required('Password required'),
+});
+
 export const AuthForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const error = useSelector(selectAuthError);
   const [buttonClick, setButtonClick] = useState(false);
-  const [register, setRegister] = useState(false);
+  const [register, setRegister] = useState(() => {
+    return localStorage.getItem('register') === 'true';
+  });
+
+  const clickRegister = () => {
+    localStorage.setItem('register', 'true');
+    window.location.reload();
+  };
+
+  const clickLogin = () => {
+    setRegister(false);
+    localStorage.removeItem('register');
+    window.location.reload();
+  };
+
   const initialValues = {
     email: '',
     password: '',
@@ -30,7 +51,11 @@ export const AuthForm = () => {
 
   return (
     <div className={s.authForm}>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
         {({ isSubmitting }) => (
           <Form className={s.form}>
             <Field
@@ -44,6 +69,11 @@ export const AuthForm = () => {
               name="password"
               type="password"
               placeholder="Password"
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className={s.passwordError}
             />
             <button
               onClick={() => setButtonClick(true)}
@@ -65,12 +95,12 @@ export const AuthForm = () => {
         {register ? (
           <p>
             Do you have an account?
-            <span onClick={() => setRegister(false)}> Log in now</span>
+            <span onClick={clickLogin}> Log in now</span>
           </p>
         ) : (
           <p>
             Don`t have an account yet?
-            <span onClick={() => setRegister(true)}> Register now</span>
+            <span onClick={clickRegister}> Register now</span>
           </p>
         )}
         <p>or</p>

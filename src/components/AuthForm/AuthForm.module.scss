@@ -1,5 +1,8 @@
 .authForm {
-    width: 323px;
+    width: 100%;
+    @include media(mobile) {
+        width: 323px;
+    }
 }
 
 .form {
@@ -12,6 +15,12 @@
     padding: 12px 18px;
     border-radius: 20px;
     border: 1px solid $light-gray;
+}
+
+.passwordError {
+    @include font(12,16);
+    color: $red;
+    text-align: center;
 }
 
 .form > button {
@@ -28,6 +37,13 @@
     color: $gray;
 }
 
+.error {
+    text-align: center;
+    border: 1px solid $red;
+    border-radius: 32px;
+    padding: 8px 0;
+}
+
 .error > p {
     color: $red;
 }
@@ -40,6 +56,13 @@
     margin-top: 10px;
 }
 
+.alternative>p {
+    @include font(14, 18);
+    @include media(mobile) {
+        @include font(16, 20)
+    }
+}
+
 .alternative span {
     color: $green;
     cursor: pointer;
@@ -49,5 +72,6 @@
     width: 200px;
     padding: 12px 18px;
     border-radius: 20px;
-    border: 1px solid $light-gray;
+    background-color: $light-gray;
+    border: none;
 }
