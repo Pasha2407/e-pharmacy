@@ -42,6 +42,10 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 205px;
 }
 
 .title > h1 {
@@ -53,8 +57,11 @@
 }
 
 .title > span {
-    @include font (12, 18);
+    @include font (10, 16);
     color: $gray;
+    @include media(tablet) {
+        @include font (12, 18);
+    }
 }
 
 .logout {

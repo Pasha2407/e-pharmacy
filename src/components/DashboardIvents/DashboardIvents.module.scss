@@ -1,8 +1,10 @@
 .ivents {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(2, 158px);
-
+    grid-template-columns: repeat(2, 140px);
+    @include media(mobile) {
+        grid-template-columns: repeat(2, 158px);
+    }
     @include media(tablet) {
         grid-template-columns: repeat(2, 220px);
     }  
@@ -12,7 +14,7 @@
 }
 
 .ivent{
-    width: 158px;
+    width: 140px;
     height: 98px;
     border-radius: 8px;
     border: 1px solid $light-gray;
@@ -22,7 +24,10 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 14px;
-
+    
+    @include media(mobile) {
+        width: 158px;
+    }
     @include media(tablet) {
         width: 220px;
         height: 108px;

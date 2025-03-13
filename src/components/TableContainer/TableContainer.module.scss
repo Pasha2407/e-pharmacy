@@ -1,9 +1,37 @@
 .large {
-    width: 1280px;
+    
+    width: 100%;
+        overflow: hidden;
+        max-width: 300px;
+    
+        @include media(mobile) {
+            max-width: 335px;
+        }
+    
+        @include media(tablet) {
+            max-width: 704px;
+        }
+    
+        @include media(desktop) {
+            max-width: none;
+            width: 1280px;
+        }
 }
 
 .small {
-    width: 630px;
+    width: 100%;
+    overflow: hidden;
+    max-width: 300px;
+    @include media(mobile) {
+        max-width: 335px;
+    }
+    @include media(tablet) {
+        max-width: 704px;
+    }
+    @include media(desktop) {
+        max-width: none;
+        width: 630px;
+    }
 }
 
 .title {
@@ -26,4 +54,5 @@
     border-bottom: 1px solid $light-gray;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    overflow-x: auto;
 }
