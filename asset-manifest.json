@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/e-pharmacy/static/js/main.1aac654f.js",
+    "main.js": "/e-pharmacy/static/js/main.443c7085.js",
     "static/media/logo.png": "/e-pharmacy/static/media/logo.fb55414a5b01bf7b9f77.png",
     "static/media/welcome-tablet.png": "/e-pharmacy/static/media/welcome-tablet.2ff2e1e2a8ee0a7cc47c.png",
     "static/media/customers.svg": "/e-pharmacy/static/media/customers.c1451d99922f91bf6fac250c11aa553e.svg",
@@ -16,9 +16,9 @@
     "static/media/suppliersActive.svg": "/e-pharmacy/static/media/suppliersActive.59f74ebe53cce5693b14a09bb1c1818e.svg",
     "static/media/burgerActive.svg": "/e-pharmacy/static/media/burgerActive.b433dc621a0a9279154f6e5a06c4454c.svg",
     "static/media/burger.svg": "/e-pharmacy/static/media/burger.b5a35a845b0b6727a4b0576e56b8a340.svg",
-    "main.1aac654f.js.map": "/e-pharmacy/static/js/main.1aac654f.js.map"
+    "main.443c7085.js.map": "/e-pharmacy/static/js/main.443c7085.js.map"
   },
   "entrypoints": [
-    "static/js/main.1aac654f.js"
+    "static/js/main.443c7085.js"
   ]
 }
